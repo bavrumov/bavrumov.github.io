@@ -1,0 +1,105 @@
+body {
+	background-color: #288A9E;/*008080*/
+	position:fixed;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+}
+/*.window{
+	margin: auto;
+}*/
+.win98 .window {
+	position: fixed;
+}
+.win98 .window .content{
+	text-align: center;
+}
+.win98 .window .header .buttons button .minimize{
+	display: block;
+	border-bottom-style: solid;
+	width: 78%;
+	margin:65% 11% 25%;
+}
+.win98 .window .header .buttons button .maximize{
+	display: block;
+	margin: auto;
+	width: 70%;
+	height: 50%;
+	border: 1px solid black;
+	border-top: 3px solid black;
+}
+.file{
+	display: inline-block;
+	text-align: center;
+	padding: 3px;
+}
+.file .fileicon.txt{
+	background-image: url(ico/notepad.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 56px;
+	height: 56px;
+}
+.file .fileicon.txt.clicked{
+	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/notepad.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+/*new styles for folder*/
+.folder{
+	display: inline-block;
+	text-align: center;
+	padding: 3px;
+}
+.folder .fileicon.fol{
+	background-image: url(ico/folder.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 56px;
+	height: 56px;
+}
+.folder .fileicon.fol.clicked{
+	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/folder.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*and for jpeg*/
+.file .fileicon.jpg{
+	background-image: url(ico/jpeg.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 56px;
+	height: 56px;
+}
+.file .fileicon.jpg.clicked{
+	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/jpeg.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*end new styles*/
+.filename{
+	color: black;
+	padding: 1px 3px 1px;
+}
+.filename.clicked{
+	background-color: #000080;
+	color: white;
+	border: 1px dotted gray;
+}
+.innerWindow{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	text-align: left;
+	letter-spacing: 1px;
+}

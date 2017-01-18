@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+	<link rel="stylesheet" href="contra/win98.css">
+	<link rel="stylesheet" href="main.css">
+	<script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+	<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script src="windows.js"></script>
+	<script src="xmlhandler.js"></script>
+	<script> //jquery
+	$(document).ready(function(){
+		//Makes new windows draggable
+		$(".window").draggable({handle:".header"});
+		$(document).on('DOMNodeInserted',function(){
+			//File Functionality: Draggable and Openable
+			$(".file").draggable();
+			$(".file").click(function(){
+				$(".file").children().removeClass("clicked");
+				$(".folder").children().removeClass("clicked");
+				$(this).children().toggleClass("clicked");
+			});
+			$(".file").dblclick(function(){
+				console.log("you opened a file");
+				// fname = $(".filename", this).html();
+				// retrieveNode(fname);
+			});
+
+			//Folder Functionality: Draggable and Openable
+			$(".folder").draggable();
+			$(".folder").click(function(){
+				$(".folder").children().removeClass("clicked");
+				$(".file").children().removeClass("clicked");
+				$(this).children().toggleClass("clicked");
+			});
+
+			$(".folder").dblclick(function(){
+				//Define what folder does when opened
+				console.log("you opened a folder");
+			});
+
+			//Open window draggable
+			$(".window").draggable({handle:".header"});
+
+		});
+
+		//Cleares file highlight when body/desktop is clicked
+		$(".win98").click(function(e){
+			if ( this === e.target ) {
+				$(".file").children().removeClass("clicked");
+				$(".folder").children().removeClass("clicked");
+			}
+		});
+
+		//Makes call to the file structure xml
+		desktop = [];
+		$.ajax({
+			type: "GET",
+			url: "filestructure.xml",
+			dataType: "xml",
+			success: function(xml) {
+				$desktopItems = $(xml).find('desktop').children(); //Contains desktop items
+				$desktopItems.each(function(){
+					//console.log($(this).attr('name'));
+					myItem = new item($(this).attr('type'),$(this).attr('name'));
+					desktop.push(myItem);
+					$(".win98").append(domItem(myItem));
+					$(".win98").append("<br />");
+				});
+			}
+		});
+
+
+
+		
+
+		
+		
+	});
+    </script>
+</head>
+<body class="win98">
+		<!-- <button id="newWin">Create new Window</button><br />
+		
+		<p class="folder">
+			<span class="fileicon fol"></span><br />
+			<span class="filename">Primordial Folder</span>
+		</p>
+
+
+		<p class="file">
+			<span class="fileicon txt"></span></br />
+			<span class="filename">Dummy file.txt</span>
+		</p><br />
+
+		<p class="file">
+			<span class="fileicon txt"></span></br />
+			<span class="filename">My Fav Shows.txt</span>
+		</p><br />
+
+		<p class="file">
+			<span class="fileicon txt"></span></br />
+			<span class="filename">Nonexistent.txt</span>
+		</p><br />
+		-->
+				<div style="left: 200px; top: 100px;" class='resizable window'>
+			      <div class='header'>
+			        <img class='icon' src='ico/notepad.gif'/>
+			        Drag me around! Resize me!
+			        <div class='buttons'>
+			          <button><span class="minimize"></span></button>
+			          <button><span class="maximize"></span></button>
+			          <button>X</button>
+			        </div>
+			      </div>
+
+			      <div class='content'>
+			          <h3>WELCOME TO MY SITE!</h3>
+			          <p>It's under super heavy construction though <br />
+			          	Sorry about that. <br />
+			          	 -Boris A.
+			          </p>
+
+			          <button>I don't do much</button>
+			      </div>
+			    </div>
+    
+<!--
+			    <div class='resizable window'>
+			      <div class='header'>
+			        <img class='icon' src='ico/notepad.gif'/>
+			        Untitled - Notepad
+			        <div class='buttons'>
+			          <button>_</button>
+			          <button>&#x25FD;</button>
+			          <button>X</button>
+			        </div>
+			      </div>
+
+			      <div class='content'>
+			          <h3>R U OK?</h3>
+			          <p></p>
+			          <button>OK</button>
+			          <button>Cancel</button>
+			      </div>
+			    </div>
+			 -->
+</body>
+</html>

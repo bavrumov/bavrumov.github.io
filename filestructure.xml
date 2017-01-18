@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<desktop>
+
+	<item type="folder" name="Primordial Folder"></item>
+
+	<item type="file" name="About.txt"></item>
+
+	<item type="file" name="Primordial.txt"></item>
+
+	<item type="folder" name="test folder">
+		<item type="file" name="one.txt"></item>
+		<item type="file" name="two.txt"></item>
+	</item>
+
+	<item type="file" name="photgraph.jpg"></item>
+</desktop>
