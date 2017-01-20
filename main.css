@@ -5,12 +5,11 @@ body {
 	bottom:0px;
 	left:0px;
 	right:0px;
+	cursor: url(ico/pointer.png), default;
 }
-/*.window{
-	margin: auto;
-}*/
 .win98 .window {
 	position: fixed;
+	cursor: inherit;
 }
 .win98 .window .content{
 	text-align: center;
@@ -29,6 +28,7 @@ body {
 	border: 1px solid black;
 	border-top: 3px solid black;
 }
+
 .file{
 	display: inline-block;
 	text-align: center;
@@ -48,6 +48,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 }
+
 /*new styles for folder*/
 .folder{
 	display: inline-block;
@@ -85,7 +86,6 @@ body {
 	background-position: center;
 }
 
-/*end new styles*/
 .filename{
 	color: black;
 	padding: 1px 3px 1px;
@@ -95,6 +95,7 @@ body {
 	color: white;
 	border: 1px dotted gray;
 }
+
 .innerWindow{
 	display: inline-block;
 	width: 100%;
@@ -102,4 +103,9 @@ body {
 	background-color: white;
 	text-align: left;
 	letter-spacing: 1px;
+}
+
+.content{
+	font-size: 1.2em;
+	margin-bottom: 5px;
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<desktop>
+
+	<file>
+		<name>Dummy file.txt</name>
+		<content>
+			<mark>here's some dummy text ,</mark> lorem ipsum
+		</content>
+	</file>
+
+	<file>
+		<name>My Fav Shows.txt</name>
+		<content>
+			<div class="innerWindow">
+				<b>Shows I Like:</b>
+				<li>Game of Thrones</li>
+				<li>Rick and Morty</li>
+				<li>Silicon Valley</li>
+				<li>Westworld</li>
+				<li>Archer</li>
+				<li>New Girl</li>
+				<li>Dragon Ball Super</li>
+			</div>
+		</content>
+	</file>
+
+	<file>
+		<name>About.txt</name>
+		<content>
+			<div class="innerWindow">
+				Here's a sample about me section!
+			</div>
+		</content>
+	</file>
+
+	<file>
+		<name>photograph.jpg</name>
+		<content>
+			<div class="innerWindow">
+				<img width="100%" height="100%" src="./ico/bestband.jpg" alt="lookatthisphotograph"/>
+				<i>LookAtThisPhotograph</i> (2005)
+			</div>
+		</content>
+	</file>
+
+</desktop>

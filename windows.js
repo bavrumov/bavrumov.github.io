@@ -2,17 +2,7 @@ NOTEPADICONPATH="ico/notepad.png";
 FOLDERICONPATH="ico/folder.png";
 PICTUREICONPATH="ico/jpeg.png";
 
-function basicWindow(title, height, width){
-	this.title = title;
-	this.height = height;
-	this.width = width;
-
-}
-
-function folder(){
-	this.window = new basicWindow
-}
-
+// Desktop item object, requires type and name from xml. this.icon isn't useful at the moment.
 function item(type, name){
 	this.type = type; 
 	this.name = name;
@@ -25,6 +15,7 @@ function item(type, name){
 			this.icon = FOLDERICONPATH;
 }
 
+// DOM-ready desktop item, constructs the html element using item object as parameter and returns it.
 function domItem(item){
 	i = document.createElement("p");
 		i.setAttribute("class",item.type);
@@ -43,4 +34,17 @@ function domItem(item){
 		two.innerHTML = item.name;
 	i.appendChild(two);
 	return i;
+}
+
+
+// universal window object, to be customized later depending on whether file or folder.
+function basicWindow(title, height, width){
+	this.title = title;
+	this.height = height;
+	this.width = width;
+
+}
+
+function folder(){
+	this.window = new basicWindow();
 }

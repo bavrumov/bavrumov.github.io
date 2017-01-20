@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link rel="icon" href="ico/favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="contra/win98.css">
 	<link rel="stylesheet" href="main.css">
 	<script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
 	<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script src="oldWindow.js"></script>
 	<script src="windows.js"></script>
 	<script src="xmlhandler.js"></script>
 	<script> //jquery
 	$(document).ready(function(){
 		//Makes new windows draggable
 		$(".window").draggable({handle:".header"});
-		$(document).on('DOMNodeInserted',function(){
-			//File Functionality: Draggable and Openable
+		$(document).on('DOMNodeInserted',function(e){
+
+		//File Functionality: Draggable and Clickable {
 			$(".file").draggable();
 			$(".file").click(function(){
 				$(".file").children().removeClass("clicked");
 				$(".folder").children().removeClass("clicked");
 				$(this).children().toggleClass("clicked");
 			});
-			$(".file").dblclick(function(){
-				console.log("you opened a file");
-				// fname = $(".filename", this).html();
-				// retrieveNode(fname);
-			});
-
-			//Folder Functionality: Draggable and Openable
+		//}
+		//Folder Functionality: Draggable and Clickable
 			$(".folder").draggable();
 			$(".folder").click(function(){
 				$(".folder").children().removeClass("clicked");
 				$(".file").children().removeClass("clicked");
 				$(this).children().toggleClass("clicked");
 			});
+		//}
 
-			$(".folder").dblclick(function(){
-				//Define what folder does when opened
-				console.log("you opened a folder");
-			});
+		//Double clicking a file
+			if ($(e.target).hasClass("file"))
+				$(e.target).dblclick(function(){
+					fname = $(".filename", this).html();
+					console.log("You opened a file named " + fname);
+					retrieveNode(fname);
+				});
+
+		//Double clicking a folder
+			if ($(e.target).hasClass("folder"))
+				$(e.target).dblclick(function(){
+					//Define what folder does when opened
+					console.log("You opened a folder");
+				});
 
 			//Open window draggable
 			$(".window").draggable({handle:".header"});
+			//Randomizes new window's position
+			if ($(e.target).hasClass("window")) {
+				marginT = Math.floor(window.outerHeight * 0.6 * Math.random());
+				marginL = Math.floor(100 + window.outerWidth * 0.6 * Math.random());
+				$(e.target).css({top: marginT, left: marginL});
+			}
+
 
 		});
 
@@ -53,7 +69,7 @@
 			}
 		});
 
-		//Makes call to the file structure xml
+		//Makes call to the file structure xml, populates desktop
 		desktop = [];
 		$.ajax({
 			type: "GET",
@@ -78,7 +94,7 @@
 		
 		
 	});
-    </script>
+	</script>
 </head>
 <body class="win98">
 		<!-- <button id="newWin">Create new Window</button><br />
@@ -105,46 +121,46 @@
 		</p><br />
 		-->
 				<div style="left: 200px; top: 100px;" class='resizable window'>
-			      <div class='header'>
-			        <img class='icon' src='ico/notepad.gif'/>
-			        Drag me around! Resize me!
-			        <div class='buttons'>
-			          <button><span class="minimize"></span></button>
-			          <button><span class="maximize"></span></button>
-			          <button>X</button>
-			        </div>
-			      </div>
+					<div class='header'>
+						<img class='icon' src='ico/notepad-1.png'/>
+						Drag me around! Resize me!
+						<div class='buttons'>
+							<button><span class="minimize"></span></button>
+							<button><span class="maximize"></span></button>
+							<button>X</button>
+						</div>
+					</div>
 
-			      <div class='content'>
-			          <h3>WELCOME TO MY SITE!</h3>
-			          <p>It's under super heavy construction though <br />
-			          	Sorry about that. <br />
-			          	 -Boris A.
-			          </p>
+					<div class='content'>
+						<h3>WELCOME TO MY SITE!</h3>
+						<p>It's under super heavy construction though <br />
+						Sorry about that. <br />
+						-Boris A.
+						</p>
 
-			          <button>I don't do much</button>
-			      </div>
-			    </div>
-    
+						<button>I don't do much</button>
+					</div>
+				</div>
+	
 <!--
-			    <div class='resizable window'>
-			      <div class='header'>
-			        <img class='icon' src='ico/notepad.gif'/>
-			        Untitled - Notepad
-			        <div class='buttons'>
-			          <button>_</button>
-			          <button>&#x25FD;</button>
-			          <button>X</button>
-			        </div>
-			      </div>
+				<div class='resizable window'>
+				  <div class='header'>
+					<img class='icon' src='ico/notepad.gif'/>
+					Untitled - Notepad
+					<div class='buttons'>
+					  <button>_</button>
+					  <button>&#x25FD;</button>
+					  <button>X</button>
+					</div>
+				  </div>
 
-			      <div class='content'>
-			          <h3>R U OK?</h3>
-			          <p></p>
-			          <button>OK</button>
-			          <button>Cancel</button>
-			      </div>
-			    </div>
+				  <div class='content'>
+					  <h3>R U OK?</h3>
+					  <p></p>
+					  <button>OK</button>
+					  <button>Cancel</button>
+				  </div>
+				</div>
 			 -->
 </body>
 </html>
