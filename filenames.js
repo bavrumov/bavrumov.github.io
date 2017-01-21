@@ -69,7 +69,6 @@ cursorList = [
 "scheduled_tasks-1.png",
 "script_file-1.png",
 "scsi_adapter-1.png",
-"server.png",
 "services-1.png",
 "solitaire-1.png",
 "sound-1.png",
@@ -87,5 +86,6 @@ cursorList = [
 "word_document-1.png",
 "word_file-1.png",
 "wordpad-1.png",
+"yellowstar-1.png",
 "zip_100__e_-1.png"];
 //Generated thanks to handy dandy bash script 

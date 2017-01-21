@@ -110,21 +110,11 @@
 			<span class="filename">Primordial Folder</span>
 		</p>
 
-
 		<p class="file">
 			<span class="fileicon txt"></span></br />
 			<span class="filename">Dummy file.txt</span>
 		</p><br />
 
-		<p class="file">
-			<span class="fileicon txt"></span></br />
-			<span class="filename">My Fav Shows.txt</span>
-		</p><br />
-
-		<p class="file">
-			<span class="fileicon txt"></span></br />
-			<span class="filename">Nonexistent.txt</span>
-		</p><br />
 		-->
 				<div style="left: 200px; top: 100px;" class='resizable window'>
 					<div class='header'>
@@ -148,7 +138,7 @@
 						<select name="cursorValue" id="curseDrop">
 							<option value="pointer.png">Classic Windows 98 Pointer</option>
 						</select>
-						<button> • This button does nothin • </button>
+						<button onclick="randomCursor();"> • Random Cursor • </button>
 					</div>
 				</div>
 	
@@ -180,6 +170,11 @@
 			tmp.innerHTML = cursorList[i].substring(0,cursorList[i].length - 6);
 			tmp.setAttribute("value", cursorList[i]);
 			document.getElementById("curseDrop").appendChild(tmp);
+		}
+		//Chooses a random cursor from the array, triggers change
+		function randomCursor(){
+			var randomIdx = Math.floor(Math.random() * cursorList.length);
+			$("#curseDrop").val(cursorList[randomIdx]).change();
 		}
 	</script>
 </body>
