@@ -20,7 +20,6 @@ cursorList = [
 "excel_document-1.png",
 "excel_file-1.png",
 "exe_file-1.png",
-"filenames.txt",
 "find_fast-1.png",
 "floppy_disk_drive__a_-1.png",
 "floppy_disk_drive__a__2_-1.png",
