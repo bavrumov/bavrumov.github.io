@@ -10,11 +10,17 @@
 	<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 	<script src="oldWindow.js"></script>
 	<script src="windows.js"></script>
+	<script src="filenames.js"></script>
 	<script src="xmlfilequery.js"></script>
 	<script> //jquery
 	$(document).ready(function(){
 		//Makes new windows draggable
 		$(".window").draggable({handle:".header"});
+		$("#curseDrop").on("change", function() {
+			val = "url(ico/classic/" + this.value + "), default";
+			$("body").css("cursor", val);
+		});
+
 		$(document).on('DOMNodeInserted',function(e){
 
 		//File Functionality: Draggable and Clickable {
@@ -123,7 +129,7 @@
 				<div style="left: 200px; top: 100px;" class='resizable window'>
 					<div class='header'>
 						<img class='icon' src='ico/notepad-1.png'/>
-						Drag me around! Resize me!
+						Drag me around! Resize me (bottom right corner)!
 						<div class='buttons'>
 							<button><span class="minimize"></span></button>
 							<button><span class="maximize"></span></button>
@@ -133,12 +139,16 @@
 
 					<div class='content'>
 						<h3>WELCOME TO MY SITE!</h3>
-						<p>It's under super heavy construction though <br />
-						Sorry about that. <br />
+						<p>It's under super heavy construction though.. <br />
+						Sorry about that.<br /><hr />
+						Also you can't really close this window either. Think of it as a permanent friend you never wanted.<br />
 						-Boris A.
-						</p>
-
-						<button>I don't do much</button>
+						</p><hr />
+						You can change your cursor here, pick something ridiculous:<br /><br />
+						<select name="cursorValue" id="curseDrop">
+							<option value="pointer.png">Classic Windows 98 Pointer</option>
+						</select>
+						<button> • This button does nothin • </button>
 					</div>
 				</div>
 	
@@ -163,6 +173,14 @@
 				</div>
 			 -->
 
-			 
+	<script>
+		//Populates cursor dropdown in initial window
+		for (i = 0; i<cursorList.length; i++) {
+			var tmp = document.createElement("OPTION");
+			tmp.innerHTML = cursorList[i].substring(0,cursorList[i].length - 6);
+			tmp.setAttribute("value", cursorList[i]);
+			document.getElementById("curseDrop").appendChild(tmp);
+		}
+	</script>
 </body>
 </html>
