@@ -35,18 +35,26 @@ body {
 	padding: 3px;
 }
 .file .fileicon.txt{
-	background-image: url(ico/notepad.png);
+	background-image: url(ico/classic/txt_file-1.png);
 	display: inline-block;
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 56px;
 	height: 56px;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
 }
 .file .fileicon.txt.clicked{
-	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/notepad.png);
+	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/classic/txt_file-1.png);
 	display: inline-block;
 	background-repeat: no-repeat;
 	background-position: center;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
 }
 
 /*new styles for folder*/
@@ -62,12 +70,20 @@ body {
 	background-position: center;
 	width: 56px;
 	height: 56px;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
 }
 .folder .fileicon.fol.clicked{
 	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/folder.png);
 	display: inline-block;
 	background-repeat: no-repeat;
 	background-position: center;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
 }
 
 /*and for jpeg*/
@@ -78,12 +94,20 @@ body {
 	background-position: center;
 	width: 56px;
 	height: 56px;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
 }
 .file .fileicon.jpg.clicked{
 	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/jpeg.png);
 	display: inline-block;
 	background-repeat: no-repeat;
 	background-position: center;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
 }
 
 .filename{
@@ -108,4 +132,6 @@ body {
 .content{
 	font-size: 1.2em;
 	margin-bottom: 5px;
+	/*width: 100%;
+	height: 100%;*/
 }

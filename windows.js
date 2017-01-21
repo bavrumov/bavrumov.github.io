@@ -1,4 +1,5 @@
-NOTEPADICONPATH="ico/notepad.png";
+//NOTEPADICONPATH="ico/notepad.png";
+NOTEPADICONPATH="txt_file-1.png";
 FOLDERICONPATH="ico/folder.png";
 PICTUREICONPATH="ico/jpeg.png";
 
