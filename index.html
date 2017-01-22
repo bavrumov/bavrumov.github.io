@@ -24,7 +24,7 @@
 		$(document).on('DOMNodeInserted',function(e){
 
 		//File Functionality: Draggable and Clickable {
-			$(".file").draggable();
+			$(".file").draggable({ containment: "parent" });
 			$(".file").click(function(){
 				$(".file").children().removeClass("clicked");
 				$(".folder").children().removeClass("clicked");
@@ -32,13 +32,16 @@
 			});
 		//}
 		//Folder Functionality: Draggable and Clickable
-			$(".folder").draggable();
+			$(".folder").draggable({ containment: "parent" });
 			$(".folder").click(function(){
 				$(".folder").children().removeClass("clicked");
 				$(".file").children().removeClass("clicked");
 				$(this).children().toggleClass("clicked");
 			});
 		//}
+
+		//If an item is in a folder
+		//if ($(e.target.parent().hasClass("foldwin")))
 
 		//Double clicking a file
 			if ($(e.target).hasClass("file"))
@@ -88,7 +91,7 @@
 					myItem = new item($(this).attr('type'),$(this).attr('name'));
 					desktop.push(myItem);
 					$(".win98").append(domItem(myItem));
-					$(".win98").append("<br />");
+					$(".win98").append("<br />"); //This line gives each item a new row, commenting out gives a new column
 				});
 			}
 		});
@@ -103,19 +106,40 @@
 	</script>
 </head>
 <body class="win98">
-		<!-- <button id="newWin">Create new Window</button><br />
-		
-		<p class="folder">
+
+		<!-- <p class="folder">
 			<span class="fileicon fol"></span><br />
 			<span class="filename">Primordial Folder</span>
-		</p>
+		</p><br />
 
 		<p class="file">
 			<span class="fileicon txt"></span></br />
 			<span class="filename">Dummy file.txt</span>
-		</p><br />
+		</p><br /> -->
 
-		-->
+			<div style="left: 200px; top: 100px;" class='resizable window foldwin'>
+			  <div class='header'>
+				<img class='icon' src='ico/folderico.png'/>
+				Agh! You found the hidden folder (I'm resizable too)
+				<div class='buttons'>
+						<button><span class="minimize"></span></button>
+						<button><span class="maximize"></span></button>
+				  <button>X</button>
+				</div>
+			  </div>
+
+			  <div class='innerFolder'>
+					<p class="file">
+						<span class="fileicon txt"></span></br />
+						<span class="filename">Top Secret.txt</span>
+					</p>
+					<p class="file">
+						<span class="fileicon txt"></span></br />
+						<span class="filename">Dummy file.txt</span>
+					</p>
+			  </div>
+			</div>
+
 				<div style="left: 200px; top: 100px;" class='resizable window'>
 					<div class='header'>
 						<img class='icon' src='ico/notepad-1.png'/>
@@ -142,26 +166,7 @@
 					</div>
 				</div>
 	
-<!--
-				<div class='resizable window'>
-				  <div class='header'>
-					<img class='icon' src='ico/notepad.gif'/>
-					Untitled - Notepad
-					<div class='buttons'>
-					  <button>_</button>
-					  <button>&#x25FD;</button>
-					  <button>X</button>
-					</div>
-				  </div>
-
-				  <div class='content'>
-					  <h3>R U OK?</h3>
-					  <p></p>
-					  <button>OK</button>
-					  <button>Cancel</button>
-				  </div>
-				</div>
-			 -->
+				
 
 	<script>
 		//Populates cursor dropdown in initial window
@@ -176,6 +181,12 @@
 			var randomIdx = Math.floor(Math.random() * cursorList.length);
 			$("#curseDrop").val(cursorList[randomIdx]).change();
 		}
+		//Double click for "secret" text files
+		$(".innerFolder").children().dblclick(function(){
+			fname = $(".filename", this).html();
+			console.log("You opened a file named " + fname);
+			retrieveNode(fname);
+		});
 	</script>
 </body>
 </html>
