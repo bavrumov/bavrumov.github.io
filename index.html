@@ -86,21 +86,23 @@
 			dataType: "xml",
 			success: function(xml) {
 				$desktopItems = $(xml).find('desktop').children(); //Contains desktop items
+				
+				itemsPerColumn = Math.round(($(".win98").height()-80) / 78);
+				numColumns = Math.ceil($desktopItems.length / itemsPerColumn);
+				//$desktopItems.length % itemsPerColumn; //#items in the last column
+				itemsAdded=0;
 				$desktopItems.each(function(){
 					//console.log($(this).attr('name'));
 					myItem = new item($(this).attr('type'),$(this).attr('name'));
 					desktop.push(myItem);
 					$(".win98").append(domItem(myItem));
-					$(".win98").append("<br />"); //This line gives each item a new row, commenting out gives a new column
+					itemsAdded++;
+					if (itemsAdded % numColumns == 0)
+						$(".win98").append("<br />"); //This line gives each item a new row, commenting out gives a new column
 				});
 			}
 		});
 
-
-
-		
-
-		
 		
 	});
 	</script>
@@ -158,7 +160,8 @@
 						Also you can't really close this window either. Think of it as a permanent friend you never wanted.<br />
 						-Boris A.
 						</p><hr />
-						You can change your cursor here, pick something ridiculous:<br /><br />
+						You can change your cursor here, pick something ridiculous:<br />
+						(remember: you point and click with the <i>top left</i> of any cursor)<br /><br />
 						<select name="cursorValue" id="curseDrop">
 							<option value="pointer.png">Classic Windows 98 Pointer</option>
 						</select>
