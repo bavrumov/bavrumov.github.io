@@ -6,10 +6,8 @@ body {
 	left:0px;
 	right:0px;
 	cursor: url(ico/pointer.png), default;
-
 	background-image:url("./ico/98logo.png");
 	background-repeat: no-repeat;
-	/*	margin: 0px auto;*/
 	background-position: 50% 50%;
 	background-attachment: fixed;
 	background-size: 22%;
@@ -66,7 +64,6 @@ body {
 	background-size: 80% 80%;
 }
 
-/*new styles for folder*/
 .folder{
 	display: inline-block;
 	text-align: center;
@@ -95,7 +92,6 @@ body {
 	background-size: 80% 80%;
 }
 
-/*and for jpeg*/
 .file .fileicon.jpg{
 	background-image: url(ico/jpeg.png);
 	display: inline-block;

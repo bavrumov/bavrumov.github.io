@@ -75,4 +75,3 @@ function uiWindow(title, body, height, width) {
 	//this.windowElement.style.height = parseInt(height)+"px";
 	//this.windowElement.style.width = parseInt(width)+"px";
 }
-

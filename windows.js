@@ -38,19 +38,9 @@ function domItem(item){
 	return i;
 }
 
-
-// universal window object, to be customized later depending on whether file or folder.
-// function basicWindow(title, height, width){
-// 	this.title = title;
-// 	this.height = height;
-// 	this.width = width;
-
-// }
-
 function folder(title, height, width){
 	myWin = document.createElement('div');
 	myWin.setAttribute("class","resizable window foldwin");
-	//myWin.style.Zindex = ""+globalZindexCounter++;
 		header = document.createElement('div');
 		header.setAttribute("class","header");
 			icon = document.createElement('img');

@@ -24,7 +24,6 @@ function retrieveNode(filename) {
 }
 
 
-
 //not in use at all
 function retrieveFileSystem(){
 	var xhttp = new XMLHttpRequest();
