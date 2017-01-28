@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="main.css">
 	<script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
 	<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script src="jscolor.2.0.4.min.js"></script>
 	<script src="oldWindow.js"></script>
 	<script src="windows.js"></script>
 	<script src="filenames.js"></script>
@@ -16,9 +17,16 @@
 	$(document).ready(function(){
 		//Makes new windows draggable
 		$(".window").draggable({handle:".header"});
+
+		//Detects cursor dropdown change
 		$("#curseDrop").on("change", function() {
 			val = "url(ico/classic/" + this.value + "), default";
 			$("body").css("cursor", val);
+		});
+		//Detecs color menu change
+		$(".jscolor").on("change", function() {
+			val = "#" + this.value;
+			$("body").css("background-color", val);
 		});
 
 		$(document).on('DOMNodeInserted',function(e){
@@ -70,8 +78,15 @@
 
 		});
 
-		//Cleares file highlight when body/desktop is clicked
+		//Cleares file highlight when desktop or inside folder is clicked
 		$(".win98").click(function(e){
+			if ( this === e.target ) {
+				$(".file").children().removeClass("clicked");
+				$(".folder").children().removeClass("clicked");
+			}
+		});
+
+		$(".innerFolder").click(function(e){
 			if ( this === e.target ) {
 				$(".file").children().removeClass("clicked");
 				$(".folder").children().removeClass("clicked");
@@ -165,7 +180,8 @@
 						<select name="cursorValue" id="curseDrop">
 							<option value="pointer.png">Classic Windows 98 Pointer</option>
 						</select>
-						<button onclick="randomCursor();"> • Random Cursor • </button>
+						<button onclick="randomCursor();"> • Random Cursor • </button><hr />
+						If you're not a fan of the desktop color, pick: <input class="jscolor" value="288A9E">
 					</div>
 				</div>
 	

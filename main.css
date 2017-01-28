@@ -6,6 +6,13 @@ body {
 	left:0px;
 	right:0px;
 	cursor: url(ico/pointer.png), default;
+
+	background-image:url("./ico/98logo.png");
+	background-repeat: no-repeat;
+	/*	margin: 0px auto;*/
+	background-position: 50% 50%;
+	background-attachment: fixed;
+	background-size: 22%;
 }
 .win98 .window {
 	position: fixed;
