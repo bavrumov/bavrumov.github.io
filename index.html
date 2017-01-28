@@ -62,8 +62,23 @@
 		//Double clicking a folder
 			if ($(e.target).hasClass("folder"))
 				$(e.target).dblclick(function(){
-					//Define what folder does when opened
-					console.log("You opened a folder");
+					fname = $(".filename", this).html();
+					console.log("You opened a folder named " + fname);
+					myFolder = new folder(fname, Math.floor(window.outerHeight*0.35), Math.floor(window.outerWidth*0.35));
+					$.ajax({	//Queries the file structure, generates items that go into the folder
+						type: "GET",
+						url: "filestructure.xml",
+						dataType: "xml",
+						success: function(xml) {
+							$folderItems = $(xml).find('item[name="' + fname + '"]').children();
+							//console.log($folderItems);
+							$folderItems.each(function(){
+								myItem = new item($(this).attr('type'),$(this).attr('name'));
+								$(myFolder.folderBody).append(domItem(myItem));
+							});
+						}
+					});
+					$(".win98").append(myFolder.windowElement);
 				});
 
 			//Open window draggable
@@ -75,18 +90,18 @@
 				$(e.target).css({top: marginT, left: marginL});
 			}
 
+			//Clears highlighted items
+			$(".innerFolder").click(function(e){
+				if ( this === e.target ) {
+					$(".file").children().removeClass("clicked");
+					$(".folder").children().removeClass("clicked");
+				}
+			});
 
 		});
 
 		//Cleares file highlight when desktop or inside folder is clicked
 		$(".win98").click(function(e){
-			if ( this === e.target ) {
-				$(".file").children().removeClass("clicked");
-				$(".folder").children().removeClass("clicked");
-			}
-		});
-
-		$(".innerFolder").click(function(e){
 			if ( this === e.target ) {
 				$(".file").children().removeClass("clicked");
 				$(".folder").children().removeClass("clicked");

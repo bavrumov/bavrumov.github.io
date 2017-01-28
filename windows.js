@@ -2,6 +2,7 @@
 NOTEPADICONPATH="/ico/classic/txt_file-1.png";
 FOLDERICONPATH="ico/folder.png";
 PICTUREICONPATH="ico/jpeg.png";
+FOLDERHEADER="ico/folderico.png";
 
 // Desktop item object, requires type and name from xml. this.icon isn't useful at the moment.
 function item(type, name){
@@ -39,13 +40,47 @@ function domItem(item){
 
 
 // universal window object, to be customized later depending on whether file or folder.
-function basicWindow(title, height, width){
-	this.title = title;
-	this.height = height;
-	this.width = width;
+// function basicWindow(title, height, width){
+// 	this.title = title;
+// 	this.height = height;
+// 	this.width = width;
 
-}
+// }
 
-function folder(){
-	this.window = new basicWindow();
+function folder(title, height, width){
+	myWin = document.createElement('div');
+	myWin.setAttribute("class","resizable window foldwin");
+	//myWin.style.Zindex = ""+globalZindexCounter++;
+		header = document.createElement('div');
+		header.setAttribute("class","header");
+			icon = document.createElement('img');
+			icon.setAttribute("class","icon");
+			icon.src=FOLDERHEADER;
+			butts = document.createElement("div");
+			butts.setAttribute("class","buttons");
+				b1 = document.createElement('button');
+					min = document.createElement('span');
+					min.setAttribute("class","minimize");
+				b1.appendChild(min);
+				b2 = document.createElement('button');
+					max = document.createElement('span');
+					max.setAttribute("class","maximize");
+				b2.appendChild(max);
+				b3 = document.createElement('button');
+				b3.setAttribute("onclick","this.parentElement.parentElement.parentElement.remove()");
+				b3.innerHTML = "X";
+			butts.appendChild(b1);
+			butts.appendChild(b2);
+			butts.appendChild(b3);
+		header.appendChild(icon);
+		header.innerHTML+=title;
+		header.appendChild(butts);
+		content = document.createElement('div');
+		content.setAttribute("class","innerFolder");
+	myWin.appendChild(header);
+	myWin.appendChild(content);
+	myWin.style.width = width +"px";
+	myWin.style.height = height +"px";
+	this.windowElement = myWin;
+	this.folderBody=content;
 }
