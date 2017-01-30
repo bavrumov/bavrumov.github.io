@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <desktop>
+	
+	<file>
+		<name>Construction.txt</name>
+		<content>
+			<h1>Woops, this section is still under construction.</h1>
+		</content>
+	</file>
 
 	<file>
 		<name>Dummy file.txt</name>
 		<content>
-			<mark>here's some dummy text ,</mark> lorem ipsum
+			<div class="innerWindow">
+				<mark>here's some dummy text ,</mark> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet sapien eleifend, iaculis turpis at, feugiat massa. Proin tincidunt eros augue, nec aliquet turpis iaculis sit amet. Vestibulum rhoncus, ligula sit amet eleifend rutrum, tortor eros condimentum ipsum, ut dictum dui felis non ligula. Aliquam quis porttitor nunc. Duis justo sem, euismod nec pellentesque sed, bibendum at massa. In hac habitasse platea dictumst. Integer vel lacus nec nulla aliquam condimentum. Cras imperdiet efficitur consequat. Pellentesque et tempus risus. Proin nulla ante, aliquet et ullamcorper et, porttitor non orci. Donec quam orci, vehicula ut elit in, venenatis fermentum ante. In porttitor dolor nec pellentesque eleifend. Curabitur ac venenatis lorem. Nam aliquam nunc non scelerisque tempor. Duis condimentum quis diam et vehicula.
+			</div>
 		</content>
 	</file>
 
@@ -12,23 +21,22 @@
 		<name>My Fav Shows.txt</name>
 		<content>
 			<div class="innerWindow">
-				<b>Shows I Like:</b>
+				<b>Shows I Really Like (at the moment):</b>
 				<li>Game of Thrones</li>
 				<li>Rick and Morty</li>
 				<li>Silicon Valley</li>
 				<li>Westworld</li>
 				<li>Archer</li>
 				<li>New Girl</li>
-				<li>Dragon Ball Super</li>
 			</div>
 		</content>
 	</file>
 
 	<file>
-		<name>About.txt</name>
+		<name>About Me.txt</name>
 		<content>
 			<div class="innerWindow">
-				Here's a sample about me section!
+				Here's a sample about me section! But who am I? I'll figure this out later.
 			</div>
 		</content>
 	</file>
@@ -43,4 +51,58 @@
 		</content>
 	</file>
 
+	<file>
+		<name>Cool Meme Dude.jpg</name>
+		<content>
+			<div class="innerWindow">
+				<img width="100%" height="100%" src="./ico/coolmeme.png" alt="coolmeme"/>
+				<i>Sweet Meme Man</i> (2017)
+			</div>
+		</content>
+	</file>
+
+	<file>
+		<name>About My Blog.txt</name>
+		<content>
+			<div class="innerWindow">
+				In this blog I'll post about things I find interesting, or cool stuff I've done lately. Maybe even movies or music I'm enjoying.
+				<br /><br />
+				Things you might see in the future:
+				<li>Programming Stuff</li>
+				<li>Math/Physics Stuff</li>
+				<li>Diary-style entries?</li>
+				<li><b>The making of this website</b></li>
+				<br />
+				Things you'll hopefully never see in this blog:
+				<li>Politics</li>
+				<li>Personal Problems</li>
+				<li>Purposefully Preposterous [P]Alliteration</li>
+				<br />
+			</div>
+		</content>
+	</file>
+
+	<file>
+		<name>Why Does This Site Exist?.txt</name>
+		<content>
+			<div class="innerWindow">
+				Great question! I'm a fan of the classic Windows aesthetic. My first computer at home ran Windows XP, and at schools I used both XP and 98. The way they look really stuck with me and create a feeling of nostalgia that I hope visitors to my site feel as well. I liked tinkering with things as a kid, as well as the feeling of discovery. So I added a way to mess around with your mouse/pointer and the desktop color while you're here. There's some easter eggs littered here too, for anyone to discover and have fun with. Little things like these make me happy, and sometimes using the internet explorer logo as a cursor is enough to bring a smile to someone's face. <br/> <br/>
+				Since you've made it this far, here's one website that inspired me (warning, it's got catchy music): <br/>
+				<a target="_blank" href="http://www.cachemonet.com">Cache Monet</a>
+			</div>
+		</content>
+	</file>
+
+	<file>
+		<name>Music I like.txt</name>
+		<content>
+			<div class="innerWindow">
+				<ul style="list-style-type: none; color:#0000EE;">
+					<li><a style="color:inherit;" target="_blank" href="https://www.youtube.com/watch?v=0c_mhrB7LlQ">Pink Season</a> (2017)</li>
+					<li><a style="color:inherit;" target="_blank" href="https://www.youtube.com/watch?v=qp1JOAdF4kM&amp;list=PL8B7A3CFFEBE9CCD8">Nevermind</a> (1991)</li>
+				</ul>
+			</div>
+		</content>
+	</file>
+	
 </desktop>

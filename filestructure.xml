@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <desktop>
 
-	<item type="folder" name="Primordial Folder"></item>
+	<item type="folder" name="My blog">
+		<item type="file" name="About My Blog.txt"></item>
+		<item type="file" name="First Blog Post!.txt"></item>
+	</item>
 
-	<item type="file" name="About.txt"></item>
+	<item type="file" name="About Me.txt"></item>
 
-	<item type="file" name="Primordial.txt"></item>
+	<item type="file" name="Dummy file.txt"></item>
 
-	<item type="folder" name="test folder">
-		<item type="file" name="one.txt"></item>
-		<item type="file" name="two.txt"></item>
+	<item type="folder" name="Humorous Memes">
+		<item type="file" name="Construction.txt"></item>
+		<!-- <item type="file" name="two.txt"></item> -->
 	</item>
 
 	<item type="file" name="photograph.jpg"></item>
 
-	<item type="file" name="My Fav Shows.txt"></item>
+	<item type="file" name="Why Does This Site Exist?.txt"></item>
 
 </desktop>
+<!-- <item type="" name=""></item> -->

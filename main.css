@@ -40,6 +40,7 @@ body {
 	display: inline-block;
 	text-align: center;
 	padding: 3px;
+	width: 88px;
 }
 .file .fileicon.txt{
 	background-image: url(ico/classic/txt_file-1.png);
@@ -68,6 +69,7 @@ body {
 	display: inline-block;
 	text-align: center;
 	padding: 3px;
+	width: 88px;
 }
 .folder .fileicon.fol{
 	background-image: url(ico/folder.png);
