@@ -104,5 +104,14 @@
 			</div>
 		</content>
 	</file>
+
+	<file>
+		<name>Top Secret.txt</name>
+		<content>
+			<div class="innerWindow">
+				Full disclosure, you can drag the files on the desktop around too. And you can drag files in the folders. Just like on an actual Windows computer (click and hold + move mouse).<br /><br />Only one catch: stuff inside folders can never be dragged outside, just like stuff on the desktop can't be dragged offscreen. Capisce?
+			</div>
+		</content>
+	</file>
 	
 </desktop>
