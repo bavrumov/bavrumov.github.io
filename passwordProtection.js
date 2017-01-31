@@ -5,9 +5,10 @@ function clearDefaultAction() {
 
 function setPasswordProtection() {
 	$(".password").dblclick( function() {
-		userPass = prompt("I'm going to need a password to open this");
-		if (userPass !== false || userPass !== null)
-			checkPassword(userPass);
+		userPass = prompt("I'm going to need a password to open this..");
+		if (userPass === false || userPass === null)
+			return;	
+		checkPassword(userPass);
 	});
 }
 
