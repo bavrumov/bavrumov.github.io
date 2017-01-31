@@ -6,11 +6,8 @@ function clearDefaultAction() {
 function setPasswordProtection() {
 	$(".password").dblclick( function() {
 		userPass = prompt("I'm going to need a password to open this");
-		checkPassword(userPass);
-		// if (userPass == "hello")
-		// 	console.log(CryptoJS.MD5(userPass).toString());
-		// else
-		// 	console.log("nope");
+		if (input !== false || input !== null)
+			checkPassword(userPass);
 	});
 }
 
