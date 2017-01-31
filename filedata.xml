@@ -45,7 +45,7 @@
 		<name>photograph.jpg</name>
 		<content>
 			<div class="innerWindow">
-				<img width="100%" height="100%" src="./ico/bestband.jpg" alt="lookatthisphotograph"/>
+				<img width="100%" height="100%" src="./photo/bestband.jpg" alt="lookatthisphotograph"/>
 				<i>LookAtThisPhotograph</i> (2005)
 			</div>
 		</content>
@@ -55,7 +55,7 @@
 		<name>Cool Meme Dude.jpg</name>
 		<content>
 			<div class="innerWindow">
-				<img width="100%" height="100%" src="./ico/coolmeme.png" alt="coolmeme"/>
+				<img width="100%" height="100%" src="./photo/coolmeme.png" alt="coolmeme"/>
 				<i>Sweet Meme Man</i> (2017)
 			</div>
 		</content>
@@ -114,18 +114,4 @@
 		</content>
 	</file>
 
-	<file>
-		<name>55a2dddcd9ffeae2491786accdeac709</name>
-		<content>
-				Yep, good job Aakash you got it.
-		</content>
-	</file>
-
-	<file>
-		<name>f0281ea5d4531b5ae20ad625a8719ffd</name>
-		<content>
-				Nice work Ben, you made it.
-		</content>
-	</file>
-	
 </desktop>

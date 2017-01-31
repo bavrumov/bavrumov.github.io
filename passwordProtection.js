@@ -18,16 +18,17 @@ function checkPassword(input) {
 	found = false;
 	$.ajax({
 		type: "GET",
-		url: "filedata.xml",
+		url: "hashlookup.xml",
 		dataType: "xml",
 		success: function(xml) {
-			$desktopItems = $(xml).find('desktop').children();
-			$desktopItems.each(function(){
+			$encryptedFiles = $(xml).find('desktop').children();
+			$encryptedFiles.each(function(){
 				nameTag = $(this).children()[0];
 				contentTag = $(this).children()[1];
 				if ($(nameTag).text() == hash) {
 					found = true;
-					textBody = '<div class="innerWindow">' + $(contentTag).text() + '</div>';
+					textBody = '<div class="innerWindow">' + contentTag.innerHTML + '</div>';
+					console.log(textBody);
 					createNewWindow(input, textBody);
 				}
 			});
