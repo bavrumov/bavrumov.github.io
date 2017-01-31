@@ -30,11 +30,11 @@ function checkPassword(input) {
 				if ($(nameTag).text() == hash) {
 					found = true;
 					textBody = '<div class="innerWindow">' + $(contentTag).text() + '</div>';
-					createNewWindow(hash, textBody);
+					createNewWindow(input, textBody);
 				}
 			});
 			if (!found)
-				createNewWindow(hash, "<h1>Password incorrect;<br />Access denied.</h1>");
+				createNewWindow("Wrong Password", "<h1>Access denied.</h1>");
 		}
 	});
 }
