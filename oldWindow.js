@@ -67,8 +67,9 @@ function uiWindow(title, body, height, width) {
 			text="";
 			if (typeof body == 'string')
 				content.innerHTML = body;
-			else
-			content.appendChild(body);
+			else{
+				content.appendChild(body);
+			}
 	myWin.appendChild(header);
 	myWin.appendChild(content);
 	this.windowElement = myWin;

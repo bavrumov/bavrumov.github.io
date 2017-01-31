@@ -13,6 +13,8 @@
 	<script src="windows.js"></script>
 	<script src="filenames.js"></script>
 	<script src="xmlfilequery.js"></script>
+	<script src="md5.js"></script>
+	<script src="passwordProtection.js"></script>
 	<script> //jquery
 	$(document).ready(function(){
 		//Makes new windows draggable
@@ -133,6 +135,7 @@
 			}
 		});
 		
+		activateEncryption();
 	});
 	</script>
 </head>
@@ -141,12 +144,12 @@
 		<!-- <p class="folder">
 			<span class="fileicon fol"></span><br />
 			<span class="filename">Primordial Folder</span>
-		</p><br />
+		</p><br />-->
 
-		<p class="file">
+		<p class="file password">
 			<span class="fileicon txt"></span></br />
-			<span class="filename">Dummy file.txt</span>
-		</p><br /> -->
+			<span class="filename">Password protected.txt</span>
+		</p>
 
 			<div style="left: 200px; top: 100px;" class='resizable window foldwin'>
 				<div class='header'>

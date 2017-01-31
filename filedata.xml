@@ -113,5 +113,19 @@
 			</div>
 		</content>
 	</file>
+
+	<file>
+		<name>55a2dddcd9ffeae2491786accdeac709</name>
+		<content>
+				First password protected file, the password was indeed "aakash"
+		</content>
+	</file>
+
+	<file>
+		<name>f0281ea5d4531b5ae20ad625a8719ffd</name>
+		<content>
+				Second password protected file, the password was indeed "ben"
+		</content>
+	</file>
 	
 </desktop>
