@@ -8,7 +8,7 @@
 
 	<item type="file" name="About Me.txt"></item>
 
-	<item type="file" name="Dummy file.txt"></item>
+	<item type="file" name="Iconic Albums.txt"></item>
 
 	<item type="folder" name="Humorous Memes">
 		<item type="file" name="Construction.txt"></item>
@@ -18,6 +18,7 @@
 	<item type="file" name="photograph.jpg"></item>
 
 	<item type="file" name="Why Does This Site Exist?.txt"></item>
-
+	
+	<!-- <item type="file" name="Dummy file.txt"></item> -->
 </desktop>
 <!-- <item type="" name=""></item> -->
