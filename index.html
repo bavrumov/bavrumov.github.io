@@ -66,7 +66,7 @@
 				$(e.target).dblclick(function(){
 					fname = $(".filename", this).html();
 					console.log("You opened a folder named " + fname);
-					myFolder = new folder(fname, Math.floor(window.outerHeight*0.35), Math.floor(window.outerWidth*0.35));
+					myFolder = new folder(fname, Math.floor(window.outerHeight*0.35), Math.floor(window.outerWidth*0.4));
 					$.ajax({	//Queries the file structure, generates items that go into the folder
 						type: "GET",
 						url: "filestructure.xml",
@@ -76,7 +76,10 @@
 							//console.log($folderItems);
 							$folderItems.each(function(){
 								myItem = new item($(this).attr('type'),$(this).attr('name'));
-								$(myFolder.folderBody).append(domItem(myItem));
+								creationDate = "Date Created: " + $(this).attr('date');
+								myItem = domItem(myItem);
+								myItem.setAttribute("title", creationDate);
+								$(myFolder.folderBody).append(myItem);
 							});
 						}
 					});
@@ -118,16 +121,17 @@
 			dataType: "xml",
 			success: function(xml) {
 				$desktopItems = $(xml).find('desktop').children(); //Contains desktop items
-				
-				itemsPerColumn = Math.round(($(".win98").height()-80) / 78);
+				itemsPerColumn = Math.round(($(".win98").height()-80) / 78) - 1;
 				numColumns = Math.ceil($desktopItems.length / itemsPerColumn);
 				//$desktopItems.length % itemsPerColumn; //#items in the last column
 				itemsAdded=0;
 				$desktopItems.each(function(){
-					//console.log($(this).attr('name'));
-					myItem = new item($(this).attr('type'),$(this).attr('name'));
+					myItem = new item($(this).attr('type'), $(this).attr('name'));
 					desktop.push(myItem);
-					$(".win98").append(domItem(myItem));
+					creationDate = "Date Created: " + $(this).attr('date');
+					myItem = domItem(myItem);
+					myItem.setAttribute("title", creationDate);
+					$(".win98").append(myItem);
 					itemsAdded++;
 					if (itemsAdded % numColumns == 0)
 						$(".win98").append("<br />"); //This line gives each item a new row, commenting out gives a new column
@@ -140,71 +144,70 @@
 	</script>
 </head>
 <body class="win98">
-
 		<!-- <p class="folder">
 			<span class="fileicon fol"></span><br />
 			<span class="filename">Primordial Folder</span>
 		</p><br />-->
 
-		<p class="file password">
+		<p title="Date Created: Narnia" class="file password">
 			<span class="fileicon txt"></span></br />
 			<span class="filename">&#128274; Secret &#128274;&nbsp; Surprise.txt</span>
 		</p>
 
-			<div style="left: 200px; top: 100px;" class='resizable window foldwin'>
-				<div class='header'>
-					<img class='icon' src='ico/folderico.png'/>
-					Agh! You found the hidden folder (I'm resizable too)
-				</div>
+		<div style="left: 200px; top: 100px;" class='resizable window foldwin'>
+			<div class='header'>
+				<img class='icon' src='ico/folderico.png'/>
+				Agh! You found the hidden folder (I'm resizable too)
+			</div>
 
-				<div class='innerFolder'>
-					<p class="file">
-						<span class="fileicon txt"></span></br />
-						<span class="filename">Top Secret.txt</span>
-					</p>
-					<p class="file">
-						<span class="fileicon txt"></span></br />
-						<span class="filename">My Fav Shows.txt</span>
-					</p>
-					<p class="file">
-						<span class="fileicon jpg"></span></br />
-						<span class="filename">Cool Meme Dude.jpg</span>
-					</p>
-					<p class="file">
-						<span class="fileicon txt"></span></br />
-						<span class="filename">Music I like.txt</span>
-					</p>
+			<div class='innerFolder'>
+				<p title="Date Created: 1/22/17" class="file">
+					<span class="fileicon txt"></span></br />
+					<span class="filename">Top Secret.txt</span>
+				</p>
+				<p title="Date Created: 12/5/16" class="file">
+					<span class="fileicon txt"></span></br />
+					<span class="filename">My Fav Shows.txt</span>
+				</p>
+				<p title="Date Created: 1/22/17" class="file">
+					<span class="fileicon jpg"></span></br />
+					<span class="filename">Cool Meme Dude.jpg</span>
+				</p>
+				<p title="Date Created: 1/4/17" class="file">
+					<span class="fileicon txt"></span></br />
+					<span class="filename">Music I like.txt</span>
+				</p>
+			</div>
+		</div>
+
+		<div style="left: 200px; top: 100px;" class='resizable window'>
+			<div class='header'>
+				<img class='icon' src='ico/notepad-1.png'/>
+				Drag me around! Resize me (bottom right corner)!
+				<div class='buttons'>
+					<button><span class="minimize"></span></button>
+					<button><span class="maximize"></span></button>
+					<button>X</button>
 				</div>
 			</div>
 
-				<div style="left: 200px; top: 100px;" class='resizable window'>
-					<div class='header'>
-						<img class='icon' src='ico/notepad-1.png'/>
-						Drag me around! Resize me (bottom right corner)!
-						<div class='buttons'>
-							<button><span class="minimize"></span></button>
-							<button><span class="maximize"></span></button>
-							<button>X</button>
-						</div>
-					</div>
-
-					<div class='content'>
-						<h3>WELCOME TO MY SITE!</h3>
-						<p>It's under super heavy construction though.. <br />
-						Sorry about that.<br />
-						But feel free to double click on files to open them!<hr />
-						Also you can't really close this window either. Think of it as a Permanent Friend™ you never wanted.<br />
-						-Boris A.
-						</p><hr />
-						You can change your cursor here, pick something ridiculous:<br />
-						(remember: you point and click with the <i>top left</i> of any cursor)<br /><br />
-						<select name="cursorValue" id="curseDrop">
-							<option value="pointer.png">Classic Windows 98 Pointer</option>
-						</select>
-						<button onclick="randomCursor();"> • Random Cursor • </button><hr />
-						If you're not a fan of the desktop color, pick: <input class="jscolor" value="288A9E">
-					</div>
-				</div>
+			<div class='content'>
+				<h3>WELCOME TO MY SITE!</h3>
+				<p>It's under super heavy construction though.. <br />
+				Sorry about that.<br />
+				But feel free to double click on files to open them!<hr />
+				Also you can't really close this window either. Think of it as a Permanent Friend™ you never wanted.<br />
+				-Boris A.
+				</p><hr />
+				You can change your cursor here, pick something ridiculous:<br />
+				(remember: you point and click with the <i>top left</i> of any cursor)<br /><br />
+				<select name="cursorValue" id="curseDrop">
+					<option value="pointer.png">Classic Windows 98 Pointer</option>
+				</select>
+				<button onclick="randomCursor();"> • Random Cursor • </button><hr />
+				If you're not a fan of the desktop color, pick: <input class="jscolor" value="288A9E">
+			</div>
+		</div>
 
 	<script>
 		//Populates cursor dropdown in initial window

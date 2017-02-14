@@ -10,9 +10,9 @@
 	</file>
 
 	<file>
-		<name>f0281ea5d4531b5ae20ad625a8719ffd</name>
+		<name>fdee17ba303cef3aff334073c10fc061</name>
 		<content>
-				Nice work Ben, you made it.
+				You followed the intructions just right. Great work! Tutorial complete or whatever. The other passwords give you more exciting things I promise.
 		</content>
 	</file>
 	
@@ -24,6 +24,53 @@
 			<img src="./photo/stony.jpg" width="100%" alt="frands"/>
 		</content>
 	</file>
+	
+	<file>
+		<name>06c794d7b55daff5d49e3f59fed7eebc</name>
+		<content>
+			Often time the first blog post is what loses any potential reader. If post #1 is garbage, there's 0 incentive to read post #2, on the off chance it gets better. After all, why would a reader gamble (against terrible odds) with their time like that? That's a lot of pressure for me, the author of this first post.<br /><br />
+			I often get lost in this kind of self reflection, and the inexplicable fear of failure. And so, I'm trapped in a cyclical paradox. If I reflect, I might cripple my ability to move forward in my endeavors. If I don't reflect, then I'm not learning or thinking enough, nor am I planning for my future. The cliché answer is to "find balance," and for me that took the form of being more impulsive. After taking a backseat for a long time, I've become more ready to try new things and put myself out into the world. I'm enjoying trying new things and putting myself in new situations (in school, at work, in friendships) and I'm proud for making this change. <br /><br />
+			I think it's important for this post to exist, to frame the future posts with some personal context. And in a few years when I look back at the post, I'll see how far along I've come. Maybe by then I've 100% resolved the paradox too, in which case good job me!<br /><br /><hr />
+			Side-note: I am taking a class called "Paradoxes and Limits of Knowledge" which explores paradoxical ways of thinking, along with reasons they arise and how to avoid them. Cool coincidence, might inspire a full future post.<hr />
+			Second side-note: This is post #0, and was written on February 2, 2017. Good work finding it.  
+		</content>
+	</file>
 
+	<file>
+		<name>9f4ed9f5ca792e049569a26a51bd5f83</name>
+		<content>
+			You've unlocked the secret cursor settings. Shhhh...
+			<input style="display:block; width:99%;" type="text" value="http://cursors0.totallyfreecursors.com/thumbnails/monkey-ani.gif"/>
+			<button onclick="secretCursor(this.parentNode.firstElementChild.value);">Update Cursor</button><br />
+			Copy-paste the url of a picture of your choosing, and it becomes your pointer on this site. Some pictures are too big to be pointers though, so keep that in mind.<br />Think small and cute, like that monkey.
+		</content>
+	</file>
+	
+	<file>
+		<name>c14e6111cfc7706ad514e7b4bb065067</name>
+		<content>
+			You unlocked the Random Desktop™ 
+			What's that mean? It means that every X seconds, the desktop becomes a random color.
+			And you get to pick how many seconds that is: x = <input type="text" value="5"/>
+			<button onclick="holoDesktop(this.parentNode.firstElementChild.value);">Start</button>
+			<button onclick="holoDesktop(0);">Stop</button><hr />
+			(It also means if you're prone to seizures don't enter a small number, for your safety.)<br />
+			If you want to change the timing, press Stop before modifying the number.
+		</content>
+	</file>
+
+	<file>
+		<name>e68ce475a36d47cfd7c6da943a59f0a4</name>
+		<content>
+			You unlocked the Rainbow Desktop™! Press start and enjoy the smooth color transition.
+			<button>Start</button>
+		</content>
+	</file>
+
+	<!-- Valentines stuff goes here -->
+	<file>
+		<name>322a103e5593ffda071d1615fd43e694</name>
+		<content></content>
+	</file>
 </desktop>
-<!-- Here's all the "encrypted" content for files. Super secure. -->
+<!-- Here's all the "encrypted" content for files. Super secure. file>(name+content)-->

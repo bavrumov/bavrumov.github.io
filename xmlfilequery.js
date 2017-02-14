@@ -22,19 +22,3 @@ function retrieveNode(filename) {
 	xhttp.open("GET", "filedata.xml", true); //asynchronous
 	xhttp.send();
 }
-
-
-//not in use at all
-function retrieveFileSystem(){
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			datadoc = xhttp.responseXML; //contains full xml file
-			allItems = datadoc.getElementsByTagName("desktop")[0].childNodes;
-			for (i=0; i<allItems.length; i++)
-				document.body.innerHTML+=""
-		}
-	};
-	xhttp.open("GET", "filestructure.xml", false); //synchronous
-	xhttp.send();
-}

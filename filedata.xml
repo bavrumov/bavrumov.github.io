@@ -62,27 +62,6 @@
 	</file>
 
 	<file>
-		<name>About My Blog.txt</name>
-		<content>
-			<div class="innerWindow">
-				In this blog I'll post about things I find interesting, or cool stuff I've done lately. Maybe even movies or music I'm enjoying.
-				<br /><br />
-				Things you might see in the future:
-				<li>Programming Stuff</li>
-				<li>Math/Physics Stuff</li>
-				<li>Diary-style entries?</li>
-				<li><b>The making of this website</b></li>
-				<br />
-				Things you'll hopefully never see in this blog:
-				<li>Politics</li>
-				<li>Personal Problems</li>
-				<li>Purposefully Preposterous [P]Alliteration</li>
-				<br />
-			</div>
-		</content>
-	</file>
-
-	<file>
 		<name>Why Does This Site Exist?.txt</name>
 		<content>
 			<div class="innerWindow">
@@ -97,6 +76,7 @@
 		<name>Music I like.txt</name>
 		<content>
 			<div class="innerWindow">
+				Just a placeholder list for now...
 				<ul style="list-style-type: none; color:#0000EE;">
 					<li><a style="color:inherit;" target="_blank" href="https://www.youtube.com/watch?v=0c_mhrB7LlQ">Pink Season</a> (2017)</li>
 					<li><a style="color:inherit;" target="_blank" href="https://www.youtube.com/watch?v=qp1JOAdF4kM&amp;list=PL8B7A3CFFEBE9CCD8">Nevermind</a> (1991)</li>
@@ -109,7 +89,9 @@
 		<name>Top Secret.txt</name>
 		<content>
 			<div class="innerWindow">
-				Full disclosure, you can drag the files on the desktop around too. And you can drag files in the folders. Just like on an actual Windows computer (click and hold + move mouse).<br /><br />Only one catch: stuff inside folders can never be dragged outside, just like stuff on the desktop can't be dragged offscreen. Capisce?
+				Full disclosure, you can drag the files on the desktop around too. And you can drag files in the folders. Just like on an actual Windows computer (click and hold + move mouse).<br />
+				<span style="color:white">Secret Password: p@r@dox</span>
+				<br />Only one catch: stuff inside folders can never be dragged outside, just like stuff on the desktop can't be dragged offscreen. Capisce?
 			</div>
 		</content>
 	</file>
@@ -178,4 +160,57 @@
 			</table>
 		</content>
 	</file>
+
+	<file>
+		<name>About My Blog.txt</name>
+		<content>
+			<div class="innerWindow">
+				In this blog I'll post about things I find interesting, or cool stuff I've done lately. Maybe even movies or music I'm enjoying.
+				<br /><br />
+				Things you might see in the future:
+				<li>Programming Stuff</li>
+				<li>Math/Physics Stuff</li>
+				<li>Diary-style entries?</li>
+				<li><b>The making of this website</b></li>
+				<br />
+				Things you'll hopefully never see in this blog:
+				<li>Politics</li>
+				<li>Personal Problems</li>
+				<li>Purposefully Preposterous [P]Alliteration</li>
+				<br />
+				At the end of every blog post is a password for the locked text file on the desktop. So if you see some letters and numbers that might vaguely look like a word, you're probably looking at a password and should go enter it. There's even a sample one here!<hr />
+				pa$$word
+			</div>
+		</content>
+	</file>
+	
+	<file>
+		<name>First Blog Post!.txt</name>
+		<content>
+			<div class="innerWindow">
+				I'm really excited this semester to be taking a class called <i>Paradoxes and Limits of Knowledge</i>. This class is the college credit equivalent of Vsauce videos, with a side of Numberphile and Veritasium. Classroom discussions are always interesting, and my professor, Noson Yanofsky, does a good job in leaving questions open ended for us to think about. He's actually written a book called <i>The Outer Limits of Reason</i>, a book that's actually featured in the Vsauce video about the <a target="_blank" href="https://www.youtube.com/watch?v=s86-Z-CbaHA">Banach-Tarski paradox</a> (Check the end of the description).<br /><br />
+				The thought experiment that we discussed most recently was the Ship of Theseus. In short, say there was a grand historic war ship that has been retired, and is now on display at the local port (a ship that belonged to captain Theseus, hence Ship of Theseus). Over time, the waves corrode the docked, out-of-service ship. We take the rotten wood plank and replace it with a new one, to keep the display up and pristine. Is that ship with one plank replaced still the Ship of Theseus?<br />
+				What if we replace two planks? Three? Maybe a hundred years pass and we've replaced every plank, maybe after a thousand every plank has been replaced several times. Is it still the Ship of Theseus? If it's not, at what point did it stop being it?<br />
+				An extension of this problem comes from Hobbes, where every time you replace a plank you keep the old one. One day after every plank is replaced, someone rebuilds the ship using the planks that were taken off. Now there are two ships, which is considered THE Ship of Theseus?<br /><br />
+				What I like about this is that it's a huge identity problem, it makes you wonder what makes something that thing? If your favorite bracelet loses one of its charms, is it still your favorite bracelet? What if you replace a charm? What if the string is on is swapped out entirely? In class my resolution was the timing: If you replace the parts all at once or even too much at a time, its no longer the Ship, but if you do it gradually then people accept it as still being the Ship, so it's completely fine. The professor asks me to consider George Washington's axe, a relic that has only two parts, handle and blade. Replacing one part is a sudden 50% change. I don't know what to think.
+				<hr /> curse1
+			</div>
+		</content>
+	</file>
+
+	<file>
+		<name>Blog Post The Second.txt</name>
+		<content>
+			<div class="innerWindow">
+				Last month, a new Yu-Gi-Oh movie was released in the U.S. "Boris, you're 19 why do you care?" And what does this have to do with your last post?<br />
+				Growing up, my favorite Saturday morning tv show was Yugioh. The whole show revolves around a trading card game, and you can be sure this card game dominated the atmosphere at school. Everyone wanted to have the rarest cards, and there was always that one d-bag whose dad toootally worked at Toys-R-Us and had a bunch of unreleased special holographic cards. Yeah right, I still remember that outlight LIE Ryan R.<br /><br />
+				People would collect cards that their favorite characters on the show used, built decks, and played against friends. Sometimes you would even win cards from other player in a high stakes game, but most people stuck to friendly trading. Through my nostalgia goggles, this was a beautiful time to grow up and the excitement of waking up Saturday mornings to see the newest episode is unforgettable. After the main series ended, other series began with different characters, and I grew older. The childhood magic dissipates.<br />
+				Cut to a decade later, a movie is coming out with all the characters of the original show. This is the one chance I'll have to re-live the excitement of being a carefree kid again. Especially since they cancelled Saturday cartoons, I needed this. I got the Saturday morning feeling again, the one I so desperately craved. Of course I chose to go to an 11 AM showing on a Saturday, just to mirror what a little Boris would've done. The idea of the movie was more important to me than the actual movie itself.<br /><br />
+				Going back to the Ship of Theseus thought experiment, every cell in my body has completely changed since the last time I watched the original Yu-Gi-Oh tv show. I watched that show at home on my tv, and this time I had to take a train to the East Village in the city, to see it on a big screen. Some new characters were introduced, some voice actors were missing. How far can I deviate from my original experience and still retain the feeling of wonder I had as a child? Am I still watching Yugioh or is this different? Am I still Boris?
+				<hr /><!-- r@in --> fl@sh
+			</div>
+		</content>
+	</file>
+
 </desktop>
+<!-- emmet shortcut: file>(name+content>div.innerWindow) -->

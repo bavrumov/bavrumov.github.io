@@ -10,11 +10,20 @@ FOLDERICONPATH="ico/folder.png";
  */
 function createNewWindow(title, content, height, width) { //Window Factory
 	var height = height || Math.floor(window.outerHeight*0.35);
-	var width = width || Math.floor(window.outerWidth*0.35);
+	var width = width || Math.floor(window.outerWidth*0.44);
     var head = title || ("Border Patrol");
     var bod = content || ("This is window #"+globalZindexCounter);
 	myWin = new uiWindow(head, bod, height, width);
 	document.body.appendChild(myWin.windowElement);
+	//Stops long files from overflowing off the page, adjusts them until they fit snugly
+		if (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
+			tempWidth = 40;
+			myWin.windowElement.style.width = tempWidth + "%";
+		}
+		while (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
+			tempWidth+=5;
+			myWin.windowElement.style.width = tempWidth + "%";
+		}
 }
 
 /*Window Object Constructor
@@ -62,7 +71,7 @@ function uiWindow(title, body, height, width) {
 			// if (typeof body == 'string')
 			// 	text.innerHTML = body;
 			// else
-		 //        text.appendChild(body);
+			//	text.appendChild(body);
 			// content.appendChild(text);
 			text="";
 			if (typeof body == 'string')
