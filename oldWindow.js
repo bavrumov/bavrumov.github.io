@@ -15,6 +15,8 @@ function createNewWindow(title, content, height, width) { //Window Factory
     var bod = content || ("This is window #"+globalZindexCounter);
 	myWin = new uiWindow(head, bod, height, width);
 	document.body.appendChild(myWin.windowElement);
+		// console.log (myWin.windowElement.scrollHeight);
+		// console.log (window.outerHeight);
 	//Stops long files from overflowing off the page, adjusts them until they fit snugly
 		if (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
 			tempWidth = 40;

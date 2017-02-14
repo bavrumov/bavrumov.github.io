@@ -16,7 +16,7 @@ function checkPassword(input) {
 	salted = "gottem," + input;
 	hash = CryptoJS.MD5(salted).toString();
 	found = false;
-	console.log(hash);
+	//console.log(hash);
 	$.ajax({
 		type: "GET",
 		url: "hashlookup.xml",
