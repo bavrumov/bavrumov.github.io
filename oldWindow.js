@@ -8,24 +8,28 @@ FOLDERICONPATH="ico/folder.png";
  *String title = file/window name in header
  *Appends newly constructed window to the html body
  */
-function createNewWindow(title, content, height, width) { //Window Factory
+function createNewWindow(title, content, height, width) {
 	var height = height || Math.floor(window.outerHeight*0.35);
 	var width = width || Math.floor(window.outerWidth*0.44);
-    var head = title || ("Border Patrol");
-    var bod = content || ("This is window #"+globalZindexCounter);
-	myWin = new uiWindow(head, bod, height, width);
+	var head = title || 'Window';
+	var bod = content || ('This is window #' + globalZindexCounter);
+	var myWin = new uiWindow(head, bod, height, width);
 	document.body.appendChild(myWin.windowElement);
-		// console.log (myWin.windowElement.scrollHeight);
-		// console.log (window.outerHeight);
-	//Stops long files from overflowing off the page, adjusts them until they fit snugly
-		if (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
-			tempWidth = 40;
-			myWin.windowElement.style.width = tempWidth + "%";
-		}
-		while (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
-			tempWidth+=5;
-			myWin.windowElement.style.width = tempWidth + "%";
-		}
+	// Expand width if content overflows vertically
+	if (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
+		tempWidth = 40;
+		myWin.windowElement.style.width = tempWidth + '%';
+	}
+	while (myWin.windowElement.scrollHeight > window.outerHeight * 0.75) {
+		myWin.windowElement.style.width = (tempWidth += 5) + '%';
+	}
+	// Make draggable and place randomly
+	$(myWin.windowElement).draggable({ handle: '.header' });
+	$(myWin.windowElement).css({
+		top:  Math.floor(window.outerHeight * 0.6 * Math.random()),
+		left: Math.floor(100 + window.outerWidth * 0.6 * Math.random())
+	});
+	wireUpWindowButtons(myWin.windowElement, head);
 }
 
 /*Window Object Constructor
@@ -40,7 +44,7 @@ function createNewWindow(title, content, height, width) { //Window Factory
 function uiWindow(title, body, height, width) {
 	myWin = document.createElement('div');
 	myWin.setAttribute("class","resizable window");
-	myWin.style.Zindex = ""+globalZindexCounter++;
+	myWin.style.zIndex = '' + globalZindexCounter++;
 		header = document.createElement('div');
 		header.setAttribute("class","header");
 			icon = document.createElement('img');
