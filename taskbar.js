@@ -140,13 +140,20 @@
         if (val === 'restart') {
             location.reload();
         } else if (val === 'dos') {
-            document.body.innerHTML = [
-                '<div style="background:black;color:#aaa;font-family:\'Courier New\',monospace;',
-                'padding:20px;height:100vh;box-sizing:border-box;font-size:14px;white-space:pre;">',
-                'Microsoft(R) Windows 98\n',
-                '   (C)Copyright Microsoft Corp 1981-1998.\n\n',
-                'C:\\WINDOWS>_</div>'
-            ].join('');
+            var shutdownWin = btn.closest('.window');
+            unregisterWindow(shutdownWin);
+            shutdownWin.remove();
+            document.querySelectorAll('.window').forEach(function (w) {
+                w.style.transition = 'opacity 0.45s';
+                w.style.opacity = '0';
+            });
+            setTimeout(function () {
+                document.querySelectorAll('.file, .folder').forEach(function (el) {
+                    el.style.transition = 'opacity 0.45s';
+                    el.style.opacity = '0';
+                });
+                setTimeout(function () { window.location.href = '/ms-dos'; }, 500);
+            }, 500);
         } else {
             document.body.style.transition = 'opacity 1.2s';
             document.body.style.opacity = '0';
