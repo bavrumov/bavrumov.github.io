@@ -17,6 +17,7 @@
 	<script src="xmlfilequery.js"></script>
 	<script src="md5.js"></script>
 	<script src="passwordProtection.js"></script>
+	<script src="taskbar.js"></script>
 	<script>
 	$(document).ready(function() {
 
@@ -103,6 +104,7 @@
 				top: Math.floor(window.outerHeight * 0.6 * Math.random()),
 				left: Math.floor(100 + window.outerWidth * 0.6 * Math.random())
 			});
+			wireUpWindowButtons(myFolder.windowElement, fname);
 		}
 
 		// Wire up static HTML items (hidden folder contents)
@@ -116,21 +118,11 @@
 			if (this === e.target) $(".file, .folder").children().removeClass("clicked");
 		});
 
-		// MutationObserver handles windows spawned by createNewWindow() in oldWindow.js,
-		// since those are appended directly to document.body outside this scope
-		new MutationObserver(function(mutations) {
-			mutations.forEach(function(mutation) {
-				mutation.addedNodes.forEach(function(node) {
-					if (node.nodeType === 1 && $(node).hasClass("window")) {
-						$(node).draggable({ handle: ".header" });
-						$(node).css({
-							top: Math.floor(window.outerHeight * 0.6 * Math.random()),
-							left: Math.floor(100 + window.outerWidth * 0.6 * Math.random())
-						});
-					}
-				});
-			});
-		}).observe(document.body, { childList: true });
+		// Register static windows with the taskbar
+		wireUpWindowButtons(document.getElementById('hiddenFolder'), 'Hidden Folder');
+		wireUpWindowButtons(document.getElementById('welcomeWindow'), 'Welcome');
+		// Welcome window is a permanent fixture — disable close button only
+		document.querySelector('#welcomeWindow .buttons button:last-child').disabled = true;
 
 		// Populate desktop from filestructure.xml
 		$.ajax({
@@ -167,10 +159,15 @@
 			<span class="filename">&#128274; Secret &#128274;&nbsp; Surprise.txt</span>
 		</p>
 
-		<div style="left: 200px; top: 100px;" class='resizable window foldwin'>
+		<div id="hiddenFolder" style="left: 200px; top: 100px;" class='resizable window foldwin'>
 			<div class='header'>
 				<img class='icon' src='ico/folderico.png'/>
 				Agh! You found the hidden folder (I'm resizable too)
+				<div class='buttons'>
+					<button><span class="minimize"></span></button>
+					<button><span class="maximize"></span></button>
+					<button>X</button>
+				</div>
 			</div>
 
 			<div class='innerFolder'>
@@ -193,7 +190,7 @@
 			</div>
 		</div>
 
-		<div style="left: 200px; top: 100px;" class='resizable window'>
+		<div id="welcomeWindow" style="left: 200px; top: 100px;" class='resizable window'>
 			<div class='header'>
 				<img class='icon' src='ico/notepad-1.png'/>
 				Drag me around! Resize me (bottom right corner)!
@@ -223,18 +220,75 @@
 		</div>
 
 	<script>
-		//Populates cursor dropdown in initial window
-		for (i = 0; i<cursorList.length; i++) {
+		for (var i = 0; i < cursorList.length; i++) {
 			var tmp = document.createElement("OPTION");
-			tmp.innerHTML = cursorList[i].substring(0,cursorList[i].length - 6);
+			tmp.innerHTML = cursorList[i].substring(0, cursorList[i].length - 6);
 			tmp.setAttribute("value", cursorList[i]);
 			document.getElementById("curseDrop").appendChild(tmp);
 		}
-		//Chooses a random cursor from the array, triggers change
-		function randomCursor(){
+		function randomCursor() {
 			var randomIdx = Math.floor(Math.random() * cursorList.length);
 			$("#curseDrop").val(cursorList[randomIdx]).change();
 		}
-</script>
+	</script>
+
+	<!-- Start menu (rendered above taskbar via CSS bottom positioning) -->
+	<div class="start-menu" id="startMenu" style="display:none">
+		<div class="menu">
+			<div class="menu-sidebar">
+				<span class="headline">Windows 98</span>
+			</div>
+			<ul class="menu-content">
+				<li class="item folder" tabindex="0">
+					<img class="icon" src="ico/classic/my_documents-1.png" />
+					<em>P</em>rograms
+					<ul class="menu-content">
+						<li class="item">
+							<a href="https://yugiai.com/" target="_blank" rel="noopener">
+								<img class="icon" src="ico/programs/yugi-ai.png" />YugiAI
+							</a>
+						</li>
+						<li class="item">
+							<a href="https://bavrumov.github.io/durak-card-game/" target="_blank" rel="noopener">
+								<img class="icon" src="ico/programs/durak.png" />Durak Card Game
+							</a>
+						</li>
+						<li class="item">
+							<a href="https://borisavrumov.com/" target="_blank" rel="noopener">
+								<img class="icon" src="ico/programs/portfolio98.png" />borisavrumov.com
+							</a>
+						</li>
+						<li class="item">
+							<a href="https://github.com/bavrumov" target="_blank" rel="noopener">
+								<img class="icon" src="ico/classic/internet_2_-1.png" />GitHub
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="divider"></li>
+				<li class="item" id="settingsItem">
+					<img class="icon" src="ico/classic/control_panel-1.png" />
+					Settings
+				</li>
+				<li class="divider"></li>
+				<li class="item" id="shutdownItem">
+					<img class="icon" src="ico/classic/power-1.png" />
+					Shut Down...
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Taskbar -->
+	<div class="taskbar" id="taskbar">
+		<button class="start-btn" id="startBtn">
+			<img src="ico/98logo.png" class="start-icon" alt="" />
+			Start
+		</button>
+		<div class="taskbar-divider"></div>
+		<div class="taskbar-tasks" id="taskbarTasks"></div>
+		<div class="taskbar-clock" id="taskbarClock"></div>
+	</div>
+
 </body>
 </html>
