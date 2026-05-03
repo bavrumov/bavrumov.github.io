@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MS-DOS Prompt</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { background: black; height: 100%; }
+        #dosTerminal {
+            color: #aaa;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        #dosInputLine { display: flex; align-items: center; }
+        #dosInput {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #aaa;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            flex: 1;
+            caret-color: #aaa;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="dosTerminal">
+    <div id="dosInputLine">
+        <span id="dosPrompt">C:\WINDOWS&gt;</span>
+        <input id="dosInput" type="text" autocomplete="off" autocorrect="off"
+               autocapitalize="off" spellcheck="false" />
+    </div>
+</div>
+<script>
+(function () {
+    var term = document.getElementById('dosTerminal');
+    var inputLine = document.getElementById('dosInputLine');
+    var dosInput = document.getElementById('dosInput');
+
+    function dosWriteLine(text, color) {
+        var line = document.createElement('div');
+        line.style.whiteSpace = 'pre-wrap';
+        if (color) line.style.color = color;
+        line.textContent = text;
+        term.insertBefore(line, inputLine);
+    }
+
+    function dosWriteHTML(html) {
+        var line = document.createElement('div');
+        line.style.whiteSpace = 'pre-wrap';
+        line.innerHTML = html;
+        term.insertBefore(line, inputLine);
+    }
+
+    dosWriteLine('Microsoft(R) Windows 98');
+    dosWriteLine('   (C)Copyright Microsoft Corp 1981-1998.\n');
+    dosWriteHTML('Type <span style="color:#fff">Paycheck.sh &lt;AnnualSalary&gt; [ZipCode]</span> to calculate take-home pay.');
+    dosWriteHTML('Type <span style="color:#fff">exit</span> to return to Windows.');
+    dosWriteLine('');
+
+    dosInput.focus();
+    term.addEventListener('click', function () { dosInput.focus(); });
+
+    var history = [];
+    var historyIndex = -1; // -1 means "current (unsaved) line"
+
+    dosInput.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (history.length === 0) return;
+            historyIndex = Math.min(historyIndex + 1, history.length - 1);
+            dosInput.value = history[historyIndex];
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            historyIndex = Math.max(historyIndex - 1, -1);
+            dosInput.value = historyIndex === -1 ? '' : history[historyIndex];
+        }
+
+        if (e.key !== 'Enter') return;
+        var cmd = dosInput.value;
+        dosInput.value = '';
+        historyIndex = -1;
+
+        dosWriteLine('C:\\WINDOWS>' + cmd);
+
+        var trimmed = cmd.trim();
+        if (trimmed) history.unshift(trimmed);
+        if (!trimmed) return;
+
+        var parts = trimmed.split(/\s+/);
+        var prog = parts[0].toLowerCase();
+
+        if (prog === 'cls') {
+            while (term.firstChild !== inputLine) term.removeChild(term.firstChild);
+        } else if (prog === 'exit') {
+            window.location.href = '/';
+        } else if (prog === 'paycheck.sh') {
+            var salary = parts[1];
+            var zip = parts[2] || '10055';
+
+            if (!salary || isNaN(Number(salary))) {
+                dosWriteLine('Usage: Paycheck.sh <YourAnnualSalary> <Optional:ZipCode>');
+                dosInput.focus();
+                return;
+            }
+
+            dosWriteLine('Your estimated annual take home pay after earning $' + salary + ' in zip ' + zip + ' is...');
+            var loadingLine = document.createElement('div');
+            loadingLine.textContent = 'Connecting to SmartAsset...';
+            term.insertBefore(loadingLine, inputLine);
+            dosInput.disabled = true;
+
+            var postBody = 'ud-current-location=ZIP|' + encodeURIComponent(zip) +
+                           '&ud-pay-fq=8&ud-it-household-income=' + encodeURIComponent(salary);
+            var targetUrl = 'https://smartasset.com/taxes/new-york-paycheck-calculator?render=json&';
+
+            fetch('https://corsproxy.io/?url=' + encodeURIComponent(targetUrl), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: postBody
+            })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                loadingLine.remove();
+                var annualized = data.page_data && data.page_data.annualizedPaycheck;
+                if (annualized != null) {
+                    dosWriteLine('$' + Math.round(annualized), '#fff');
+                } else {
+                    dosWriteLine('Error: Could not parse paycheck data.');
+                }
+                dosInput.disabled = false;
+                dosInput.focus();
+            })
+            .catch(function () {
+                loadingLine.textContent = 'Error: Network request failed.';
+                dosInput.disabled = false;
+                dosInput.focus();
+            });
+        } else {
+            dosWriteLine("'" + parts[0] + "' is not recognized as a command.");
+        }
+
+        dosInput.focus();
+    });
+})();
+</script>
+</body>
+</html>
