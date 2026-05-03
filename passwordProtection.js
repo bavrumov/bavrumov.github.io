@@ -1,6 +1,6 @@
 //Uses Jquery, requires page to be loaded
 function clearDefaultAction() {
-	$(".password").unbind("dblclick");
+	$(".password").off("dblclick");
 }
 
 function setPasswordProtection() {

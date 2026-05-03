@@ -16,7 +16,7 @@ function retrieveNode(filename) {
 				if (allFiles[i].getElementsByTagName("name")[0].innerHTML == filename)
 					htmlstring = allFiles[i].getElementsByTagName("content")[0].innerHTML;
 
-			createNewWindow(fname,htmlstring);
+			createNewWindow(filename,htmlstring);
 	    }
 	};
 	xhttp.open("GET", "filedata.xml", true); //asynchronous
