@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Jekyll / Ruby
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/
+
+# Node (in case npm tooling gets added)
+node_modules/
+
+# Editor cruft
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS / misc
+Thumbs.db
+ehthumbs.db
+Desktop.ini
