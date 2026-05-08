@@ -130,16 +130,11 @@
 			url: "filestructure.xml",
 			dataType: "xml",
 			success: function(xml) {
-				var $items = $(xml).find('desktop').children();
-				var itemsPerColumn = Math.round(($(".win98").height() - 80) / 78) - 1;
-				var numColumns = Math.ceil($items.length / itemsPerColumn);
-				var added = 0;
-				$items.each(function() {
+				$(xml).find('desktop').children().each(function() {
 					var myItem = domItem(new item($(this).attr('type'), $(this).attr('name')));
 					myItem.setAttribute("title", "Date Created: " + $(this).attr('date'));
-					$(".win98").append(myItem);
+					$("#desktop-icons").append(myItem);
 					wireUpItem(myItem);
-					if (++added % numColumns === 0) $(".win98").append("<br />");
 				});
 			}
 		});
@@ -154,20 +149,22 @@
 			<span class="filename">Primordial Folder</span>
 		</p><br />-->
 
+	<div id="desktop-icons">
 		<p title="Date Created: Narnia" class="file password">
 			<span class="fileicon txt"></span></br />
 			<span class="filename">&#128274; Secret &#128274;&nbsp; Surprise.txt</span>
 		</p>
+	</div>
 
 		<div id="hiddenFolder" style="left: 200px; top: 100px;" class='resizable window foldwin'>
 			<div class='header'>
-				<img class='icon' src='ico/folderico.png'/>
-				Agh! You found the hidden folder (I'm resizable too)
 				<div class='buttons'>
 					<button><span class="minimize"></span></button>
 					<button><span class="maximize"></span></button>
 					<button>X</button>
 				</div>
+				<img class='icon' src='ico/folderico.png'/>
+				<span class="window-title">Agh! You found the hidden folder (I'm resizable too)</span>
 			</div>
 
 			<div class='innerFolder'>
@@ -192,13 +189,13 @@
 
 		<div id="welcomeWindow" style="left: 200px; top: 100px;" class='resizable window'>
 			<div class='header'>
-				<img class='icon' src='ico/notepad-1.png'/>
-				Drag me around! Resize me (bottom right corner)!
 				<div class='buttons'>
 					<button><span class="minimize"></span></button>
 					<button><span class="maximize"></span></button>
 					<button>X</button>
 				</div>
+				<img class='icon' src='ico/notepad-1.png'/>
+				<span class="window-title">Drag me around! Resize me (bottom right corner)!</span>
 			</div>
 
 			<div class='content'>

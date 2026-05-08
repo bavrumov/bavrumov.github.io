@@ -15,6 +15,34 @@ body {
 .win98 .window {
 	position: fixed;
 	cursor: inherit;
+	min-width: 72px;
+}
+
+/* ── Window header: title truncates with ellipsis, buttons stay right ── */
+.win98 .window .header .window-title {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* ── Desktop icon container: column-first layout ── */
+#desktop-icons {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 28px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	padding: 4px 0 0 4px;
+	pointer-events: none;
+	z-index: 0;
+}
+#desktop-icons > * {
+	pointer-events: auto;
 }
 .win98 .window .content{
 	text-align: center;
@@ -108,6 +136,29 @@ body {
 }
 .file .fileicon.jpg.clicked{
 	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/jpeg.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
+}
+
+.file .fileicon.pdf{
+	background-image: url(ico/classic/pdf_file-1.png);
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 56px;
+	height: 56px;
+	-webkit-background-size: 80% 80%;
+	-moz-background-size: 80% 80%;
+	-o-background-size: 80% 80%;
+	background-size: 80% 80%;
+}
+.file .fileicon.pdf.clicked{
+	background: linear-gradient(rgba(0, 0, 80, 0.40), rgba(0, 0, 80, 0.40)), url(ico/classic/pdf_file-1.png);
 	display: inline-block;
 	background-repeat: no-repeat;
 	background-position: center;
