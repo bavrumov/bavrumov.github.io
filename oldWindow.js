@@ -68,9 +68,12 @@ function uiWindow(title, body, height, width) {
 			butts.appendChild(b1);
 			butts.appendChild(b2);
 			butts.appendChild(b3);
-		header.appendChild(icon);
-		header.innerHTML+=title;
 		header.appendChild(butts);
+		header.appendChild(icon);
+		var titleSpan = document.createElement('span');
+		titleSpan.className = 'window-title';
+		titleSpan.textContent = title;
+		header.appendChild(titleSpan);
 		content = document.createElement('div');
 		content.setAttribute("class","content");
 			// text = document.createElement('h3');
