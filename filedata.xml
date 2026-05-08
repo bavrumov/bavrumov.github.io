@@ -212,5 +212,14 @@
 		</content>
 	</file>
 
+	<file>
+		<name>resume_3_final.pdf</name>
+		<content>
+			<div class="innerWindow" style="padding:0;overflow:auto;">
+				<img src="./photo/resume_screenshot.png" style="width:100%;display:block;" alt="Resume" />
+			</div>
+		</content>
+	</file>
+
 </desktop>
 <!-- emmet shortcut: file>(name+content>div.innerWindow) -->
