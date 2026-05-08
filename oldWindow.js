@@ -52,6 +52,8 @@ function uiWindow(title, body, height, width) {
 			icon.src=NOTEPADICONTITLE;
 			if (title.substring(title.length-4)==".jpg")
 				icon.src = PICTUREICONPATH;
+			if (title.substring(title.length-4)==".pdf")
+				icon.src = PDFICONPATH;
 			butts = document.createElement("div");
 			butts.setAttribute("class","buttons");
 				b1 = document.createElement('button');
