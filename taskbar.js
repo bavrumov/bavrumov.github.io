@@ -127,7 +127,7 @@
             '<option value="restart">Restart</option>',
             '<option value="dos">Restart in MS-DOS mode</option>',
             '</select></div></div>',
-            '<div style="text-align:right;">',
+            '<div style="text-align:center;">',
             '<button onclick="confirmShutdown(this)" style="margin-right:4px;">OK</button>',
             '<button onclick="var w=this.closest(\'.window\');unregisterWindow(w);w.remove();">Cancel</button>',
             '</div></div>'
