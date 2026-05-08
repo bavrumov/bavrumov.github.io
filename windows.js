@@ -2,6 +2,8 @@
 NOTEPADICONPATH="/ico/classic/txt_file-1.png";
 FOLDERICONPATH="ico/folder.png";
 PICTUREICONPATH="ico/jpeg.png";
+PDFICONPATH="ico/classic/pdf_file-1.png";
+EXEICONPATH="ico/classic/exe_file-1.png";
 FOLDERHEADER="ico/folderico.png";
 
 // Desktop item object, requires type and name from xml. this.icon isn't useful at the moment.
